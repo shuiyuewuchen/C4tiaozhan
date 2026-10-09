@@ -1,0 +1,120 @@
+# elite20_rubric.yaml — Submission specs for Elite20 challenges.
+#
+# This file is DATA, not code. To audit a new challenge, just append an entry here.
+#
+# Schema per challenge:
+#   deliverables:           list of required/optional files matched by glob on filename
+#     - pattern: "*.skill"
+#       required: true
+#       description: human label
+#   naming:
+#     must_contain: "_C4_"   every submitted file should contain this substring
+#   min_kb: {}              per-pattern minimum size (optional)
+#
+# Global rules apply to any submission folder:
+#   global_section_rules:    open matching MD files and require these headings/text.
+
+version: 1
+
+challenges:
+  C1:
+    title: 课程学习与理解
+    deliverables:
+      - pattern: "*课程笔记*"
+        required: true
+        description: 课程学习笔记
+      - pattern: "*总结*"
+        required: true
+        description: 学习总结
+    naming:
+      must_contain: "_C1_"
+
+  C2:
+    title: 论文阅读与复现
+    deliverables:
+      - pattern: "*论文*"
+        required: true
+        description: 论文阅读报告 / paper
+      - pattern: "*references*"
+        required: false
+        description: 参考文献
+    naming:
+      must_contain: "_C2_"
+
+  C3:
+    title: 高质量参与
+    deliverables:
+      - pattern: "*参与*"
+        required: true
+        description: 参与记录 / 互动日志
+      - pattern: "*反思*"
+        required: true
+        description: 反思文档
+    naming:
+      must_contain: "_C3_"
+
+  C4:
+    title: 技能分享与传播
+    deliverables:
+      - pattern: "*skill说明*"
+        required: true
+        description: Skill 说明文档（解决什么问题/输入输出/步骤/案例）
+      - pattern: "*.skill"
+        required: true
+        description: 可安装的技能包（tar.gz）
+      - pattern: "*教学说明*"
+        required: true
+        description: 教学文档（如何上手/常见坑/优化技巧）
+      - pattern: "*demo*"
+        required: true
+        description: Demo（mp4 视频或 png 截图）
+      - pattern: "*AI日志*"
+        required: true
+        description: AI 使用日志（多轮迭代记录）
+    naming:
+      must_contain: "_C4_"
+      skip_extensions: [".py", ".yaml", ".yml", ".json", ".txt"]
+
+  C5:
+    title: 实战项目
+    deliverables:
+      - pattern: "*项目说明*"
+        required: true
+        description: 项目 README / 说明
+      - pattern: "*.py"
+        required: false
+        description: 项目代码（如有）
+    naming:
+      must_contain: "_C5_"
+
+  C6:
+    title: 公开分享
+    deliverables:
+      - pattern: "*分享*"
+        required: true
+        description: 分享材料 / 讲稿
+    naming:
+      must_contain: "_C6_"
+
+  C7:
+    title: 内容传播
+    deliverables:
+      - pattern: "*传播*"
+        required: true
+        description: 传播内容 / 公开发布记录
+    naming:
+      must_contain: "_C7_"
+
+# Global rules: applied to every challenge folder.
+global_section_rules:
+  - file_pattern: "*skill说明*.md"
+    sections:
+      - "解决什么问题"
+      - "输入"
+      - "输出"
+      - "使用步骤"
+      - "案例"
+  - file_pattern: "*教学说明*.md"
+    sections:
+      - "上手"
+      - "坑"
